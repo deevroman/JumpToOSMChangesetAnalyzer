@@ -51,4 +51,17 @@ module.exports = [
       return [changeset];
     },
   },
+  {
+    name: "osm-revert",
+    category: "Changeset Analizers",
+    domain: "revert.monicz.dev",
+    urlPattern: /\//,
+    getUrl(changeset) {
+      return 'https://revert.monicz.dev?changesets=' + changeset;
+    },
+    getLatLonZoom(url) {
+      const [, changeset] = url.match(/changesets\?c=(\d[0-9]*)/);
+      return [changeset];
+    },
+  },
 ];
